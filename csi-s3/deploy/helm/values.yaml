@@ -17,14 +17,14 @@ storageClass:
   # Use a single bucket for all dynamically provisioned persistent volumes
   singleBucket: ""
   # GeeseFS mount options
-  mountOptions: "--memory-limit 1000 --dir-mode 0777 --file-mode 0666"
+  mountOptions: "--memory-limit 1000 --dir-mode 0777 --file-mode 0777"
   # Volume reclaim policy
   reclaimPolicy: Delete
   # Annotations for the storage class
   # Example:
-  # annotations:
-  #   storageclass.kubernetes.io/is-default-class: "true"
-  annotations: {}
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+  ## annotations: {}
 
 secret:
   # Specifies whether the secret should be created
@@ -36,7 +36,7 @@ secret:
   # S3 Secret Key
   secretKey: ""
   # Endpoint
-  endpoint: https://storage.yandexcloud.net
+  endpoint: http://minio
 
 tolerations:
   all: false
